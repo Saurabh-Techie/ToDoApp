@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO-DO APP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="main">
-            <h3>TO-DO APP</h3>   
-            <input type="text" placeholder="Enter Your Task" id="input"><button id="add">ADD</button>
-            <ul id="UL">
-                <li id="LI" >ss<span id="SPAN">X</span></li>
-            </ul>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo App</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="todo-app">
+            <h1>Todo App</h1>
+            <form action="" id="task-form">
+                <input
+                    type="text"
+                    id="task-input"
+                    placeholder="Enter a New Task"
+                />
+                <button class="btn" type="submit">
+                    +
+                </button>
+            </form>
+            <ul id="task-list"></ul>
         </div>
-    </div>
-<script src="app.js"></script>
-</body>
+        <script src="app.js"></script>
+    </body>
 </html>

@@ -1,16 +1,43 @@
-const input = document.querySelector('#input');
-const add = document.querySelector('#add');
-const list  = document.querySelector('#UL');
+const taskInput = document.getElementById("task-input");
+const taskForm = document.getElementById("task-form");
+const taskList = document.getElementById("task-list");
 
-add.addEventListener("click",()=>{
-    const li = document.createElement('li');
-    li.id = "LI";
-    list.appendChild(li)
-    const span = document.createElement('span')
-    span.innerHTML="X"
-    span.id = SPAN
-    const text = document.createTextNode(input.value);
-    li.appendChild(text)
-    li.appendChild(span)
-    
-})
+taskForm.addEventListener("submit", () => {
+    const taskTitle = taskInput.value;
+
+    if (taskTitle == "") {
+        alert("Please Enter Task");
+    } else {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = taskTitle;
+        taskList.append(listItem);
+        let span = document.createElement("span");
+        span.innerHTML = `x`;
+        listItem.appendChild(span);
+        taskInput.value = "";
+        saveListData();
+    }
+});
+
+taskList.addEventListener("click", (e) => {
+    if (e.target.tagName == "LI") {
+        e.target.classList.toggle("checked");
+        saveListData();
+    }
+
+    if (e.target.tagName == "SPAN") {
+        const li = e.target.parentElement;
+        li.remove();
+        saveListData();
+    }
+});
+
+function showListData() {
+    taskList.innerHTML = localStorage.getItem("listItem");
+}
+
+function saveListData() {
+    localStorage.setItem("listItem", taskList.innerHTML);
+}
+
+showListData();
